@@ -16,7 +16,7 @@ body{
 }
 .aboutUs{
     padding: 30px;
-    background-color: blue;
+    
     color: white;
 }
 .latestThings{
@@ -29,15 +29,51 @@ footer{
     color: white;
     padding: 30px;
 }
-nav{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
-    position: fixed;
+.navBar{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     padding: 10px 30px 30px 30px;
     color: white;
+    text-align: center;
+}
+.navBar a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 0 10px;
+}
+.navBar a:hover{
+    color: purple;
     
 }
+.navBar a:visited {
+    border-bottom: 2px solid purple;
+}
+.pcBrands{
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4)), url("../Photo/setup2.jpeg");
+    background-size: cover; 
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.description {
+    font-size: 30px;
+    font-family:'VT323', monospace ;
+}
 
+.fancy {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    
+}
+.pIpare{
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+}
+p{
+    font-family: 'VT323', monospace;
+}
   
