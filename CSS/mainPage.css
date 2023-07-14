@@ -94,5 +94,7 @@ hr{
     width: 10%;
     color: rgb(91, 43, 139);
     margin: 10px auto;
+}h1,h2,h3{
+    font-family: 'VT323', monospace;
 }
   
