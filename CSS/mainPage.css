@@ -77,3 +77,12 @@ p{
     font-family: 'VT323', monospace;
 }
   
+/* Per div-in e dyte*/
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+/* End of that css*/
