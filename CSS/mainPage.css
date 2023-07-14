@@ -100,6 +100,10 @@ ul{
 .footer-col .social-links a:hover{
 	color: #24262b;
 	background-color: #ffffff;
+footer{
+    background-color: aqua;
+    color: white;
+    padding: 30px;
 }
 
 
@@ -159,15 +163,48 @@ p{
     padding-right: 150px;
 }
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: black;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: calc(50% - 40px); /* Adjusted width to occupy 50% of the row with margin included */
+  }
+  
+  .card-text {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .inside-container {
+    width: 200px;
+    height: 150px;
+  }
+  
+  .btn {
+    border-radius: 15px;
+    padding: 5px 15px;
+    background-color: rgb(100, 23, 151);
+  }
+
 /* End of that css*/
 .PC1{
     width: 380px;
-    height: 420px;
+    height: 400px;
 }
 .image-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
 }
 .keyboard {
     width: 35%;
@@ -181,4 +218,44 @@ hr{
 }h1,h2,h3{
     font-family: 'VT323', monospace;
 }
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: right;
+    margin-right: 100px;
+    background-color:aliceblue ;
+    height: 280px;
+    width: 300px;
+  }
+  .search-container label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: black;
+  }
+  .search-container p {
+    margin-right: 10px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .search-container select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    width: 60%;
+  }
+  
+  .search-container select option {
+    padding: 5px;
+  }
+  
+  .search-container select:focus {
+    outline: none;
+    border-color: #555;
+  }
+  
+
   
