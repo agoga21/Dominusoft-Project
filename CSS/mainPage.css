@@ -24,7 +24,8 @@ body{
     background-color: yellow;
     color: white;
 }
-footer{
+footer-clean{
+    display: flex;
     background-color: aqua;
     color: white;
     padding: 30px;
@@ -76,6 +77,16 @@ footer{
 p{
     font-family: 'VT323', monospace;
 }
+  
+/* Per div-in e dyte*/
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+/* End of that css*/
 .PC1{
     width: 380px;
     height: 400px;
@@ -97,44 +108,4 @@ hr{
 }h1,h2,h3{
     font-family: 'VT323', monospace;
 }
-.search-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    float: right;
-    margin-right: 100px;
-    background-color:aliceblue ;
-    height: 280px;
-    width: 300px;
-  }
-  .search-container label {
-    margin-right: 10px;
-    font-weight: bold;
-    color: black;
-  }
-  .search-container p {
-    margin-right: 10px;
-    font-weight: bold;
-    color: black;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
-  .search-container select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-right: 10px;
-    width: 60%;
-  }
-  
-  .search-container select option {
-    padding: 5px;
-  }
-  
-  .search-container select:focus {
-    outline: none;
-    border-color: #555;
-  }
-  
-
   
