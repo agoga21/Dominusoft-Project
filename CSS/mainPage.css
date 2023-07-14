@@ -115,6 +115,12 @@ p{
     background-color: rgb(100, 23, 151);
   }
 
+  .swiper-container {
+    /* Set a fixed height or a maximum height for the container */
+    max-height: 1000px; /* Adjust the height as needed */
+    position: relative;
+  }
+  
 /* End of that css*/
 .PC1{
     width: 380px;
