@@ -86,7 +86,8 @@ p{
     justify-content: left;
 }
 .keyboard {
-    width: 35%;
+    width: 40%;
+    padding-left: 60px;
 }
 hr{
     border-style: dotted none none;
@@ -102,29 +103,34 @@ hr{
     flex-direction: column;
     align-items: center;
     float: right;
-    margin-right: 100px;
+    margin-right: 70px;
     background-color:aliceblue ;
-    height: 280px;
+    height: 480px;
     width: 300px;
+    margin-top: 80px;
+    border-radius: 3px;
   }
   .search-container label {
     margin-right: 10px;
     font-weight: bold;
     color: black;
   }
-  .search-container p {
+  .search-container h3 {
     margin-right: 10px;
     font-weight: bold;
     color: black;
     font-family: 'Courier New', Courier, monospace;
   }
   
+  
   .search-container select {
     padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-right: 10px;
-    width: 60%;
+    border-width: 2px 0;
+    border-style: solid;
+    border-color: #ccc;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
   }
   
   .search-container select option {
@@ -135,6 +141,7 @@ hr{
     outline: none;
     border-color: #555;
   }
+  
   
 
   
