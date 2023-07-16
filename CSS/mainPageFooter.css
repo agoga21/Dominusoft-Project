@@ -1,4 +1,13 @@
 /*Per footerin*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+/* Your custom CSS code goes here */
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
 .container{
 	max-width: 1170px;
 	margin:auto;
@@ -11,7 +20,7 @@ ul{
 	list-style: none;
 }
 .footer{
-	background-color: #24262b;
+	background-color: #180032;
     padding: 70px 0;
 }
 .footer-col{
@@ -57,7 +66,7 @@ ul{
 	display: inline-block;
 	height: 40px;
 	width: 40px;
-	background-color: rgba(255,255,255,0.2);
+	background-color:rgba(255,255,255,0.2);
 	margin:0 10px 10px 0;
 	text-align: center;
 	line-height: 40px;
@@ -69,9 +78,14 @@ ul{
 	color: #24262b;
 	background-color: #ffffff;
 }
-footer{
-    background-color: aqua;
-    color: white;
-    padding: 30px;
+.social-links a {
+	color: #000;
+	margin-right: 10px;
+}
+.footer-copyright {
+	text-align: center;
+	margin-top: 20px;
+	color: #bbbbbb;
+	font-size: 14px;
 }
 /*deri ketu per footerin*/
