@@ -20,6 +20,7 @@ ul{
 	list-style: none;
 }
 .footer{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/background.jpg");
 	background-color: #180032;
     padding: 70px 0;
 }
