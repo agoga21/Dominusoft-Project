@@ -204,7 +204,26 @@ hr{
     text-align: center;
   }
   
-  
+  /* media*/
+
+
+.navBar .toggle-button {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navBar a:not(.toggle-button) {
+        display: none;
+    }
+
+    .navBar .toggle-button {
+        display: block;
+    }
+
+    .navBar.active a:not(.toggle-button) {
+        display: block;
+    }
+}
   
 
   
