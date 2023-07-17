@@ -21,9 +21,43 @@ body{
     color: white;
 }
 .latestThings{
-    padding: 30px;
-    background-color: yellow;
-    color: white;
+  padding: 30px;
+  display: flex;
+  color: whitesmoke;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/Lightstudio-desktop.jpg");
+  background-size: cover; 
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.column{
+  flex: 50%;
+  padding: 30px;
+  margin: 30px;
+  align-items:center;
+
+}
+.about{
+  font-family: sans-serif;
+  font-size: 25px;
+}
+.foto-about{
+  width: 350px;
+  border-radius: 360px;
+  float:right;
+}
+.button {
+  text-decoration: none;
+  color: white;
+  background: rgb(145, 92, 182);
+  padding: 15px 40px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+.glow-button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgb(133, 29, 207);
 }
 
 .navBar{
@@ -154,7 +188,7 @@ hr{
     height: 480px;
     width: 300px;
     margin-top: 80px;
-    border-radius: 3px;
+    border-radius: 4px;
   }
   .search-container label {
     margin-right: 10px;
@@ -187,7 +221,22 @@ hr{
     outline: none;
     border-color: #555;
   }
+  input.buttonSubmit {
+    background-color: rebeccapurple;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
+  .bestSellerH1{
+    text-align: center;
+  }
   
   
   
