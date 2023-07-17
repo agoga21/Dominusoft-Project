@@ -154,7 +154,7 @@ hr{
     height: 480px;
     width: 300px;
     margin-top: 80px;
-    border-radius: 3px;
+    border-radius: 4px;
   }
   .search-container label {
     margin-right: 10px;
@@ -186,6 +186,18 @@ hr{
   .search-container select:focus {
     outline: none;
     border-color: #555;
+  }
+  input.buttonSubmit {
+    background-color: rebeccapurple;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
   }
 
   .bestSellerH1{
