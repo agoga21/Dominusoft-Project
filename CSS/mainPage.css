@@ -22,9 +22,14 @@ body{
 }
 .latestThings{
     padding: 30px;
-    background-color: yellow;
-    color: white;
+    display: flex;
+    color: whitesmoke;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url("../Photo/Lightstudio-desktop.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0,0,0,0.5);
 }
+
 
 .navBar{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
@@ -119,6 +124,7 @@ p{
     /* Set a fixed height or a maximum height for the container */
     max-height: 1000px; /* Adjust the height as needed */
     position: relative;
+    overflow: hidden;
   }
   
 /* End of that css*/
