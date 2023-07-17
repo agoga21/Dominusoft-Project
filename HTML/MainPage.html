@@ -20,6 +20,7 @@
             <a href="CatalogPage.html">Catalog</a>
             <a href="#">Parts</a>
             <a href="#">About Us</a>
+            <a href="#" class="toggle-button">&#9776;</a>
             <!-- per navigation barin -->
         </nav>
         <br><br><br>
@@ -200,6 +201,16 @@
                 prevEl: '.swiper-button-prev',  // Specify the previous button selector
             },
         });
+
+        
+        // Responsive navigation bar toggle
+        const toggleButton = document.querySelector('.toggle-button');
+        const navBar = document.querySelector('.navBar');
+
+        toggleButton.addEventListener('click', () => {
+            navBar.classList.toggle('active');
+        });
+    
     </script>
 
 
