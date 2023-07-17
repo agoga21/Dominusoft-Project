@@ -153,6 +153,7 @@ p{
     /* Set a fixed height or a maximum height for the container */
     max-height: 1000px; /* Adjust the height as needed */
     position: relative;
+    overflow: hidden;
   }
   
 /* End of that css*/
@@ -238,6 +239,10 @@ hr{
     text-align: center;
   }
   
+  /* media*/
+
+  @media only screen and (max-width: 500px;  ){ 
+  }
   
   
 
