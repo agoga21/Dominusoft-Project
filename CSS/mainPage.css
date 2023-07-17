@@ -60,29 +60,43 @@ body{
   box-shadow: 0 5px 15px rgb(133, 29, 207);
 }
 
-.navBar{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 10px 30px 30px 30px;
-    color: white;
-    text-align: center;
+.navBar {
+  background-color: black;
+  padding: 20px;
+  text-align: center;
 }
-.navBar a{
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 0 10px;
+
+.navBar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
 }
-.navBar a:hover{
-    color: purple;
-    
+
+.navBar a:hover {
+  background-color: #555;
 }
-.navBar a:visited {
-    border-bottom: 2px solid purple;
+
+.navBar a.active {
+  background-color: #777;
 }
+
+/* Add a subtle gradient background effect */
+.navBar {
+  background: linear-gradient(to right, #222, #333);
+}
+
+/* rebeccaBlue = rgb(102 51 153) */
+
+/* Apply a different style to the last link in the navigation */
+.navBar a:last-child {
+  background-color: rebeccapurple;
+  color: #fff;
+}
+
 .pcBrands{
     background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4)), url("../Photo/setup2.jpeg");
     background-size: cover; 
