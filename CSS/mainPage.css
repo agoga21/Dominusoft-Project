@@ -170,7 +170,6 @@ p{
     max-height: 1000px; /* Adjust the height as needed */
     position: relative;
     overflow: hidden;
-    overflow: hidden;
   }
   
 /* End of that css*/
@@ -286,6 +285,22 @@ hr{
       height: 460px;
       width: 220px;
     }
+
+
+       .image-row{
+        display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Spread the images across the container with equal space */
+  align-items: center;
+  padding-left: 5px;
+    padding-right: 5px;
+       }
+
+    .image-row img {
+      width: 50px; /* Set the image width to 100% to make it responsive */
+      max-height: 35px; 
+  object-fit: cover; /* Maintain the image's aspect ratio within the container */
+  margin-bottom: 10px;
+    }
 }
 @media screen and(min-width: 768px){
   .image-container .keyboard{
@@ -296,6 +311,20 @@ hr{
     width: 300px;
   }
 }
-  
+
+.image-row {
+  display: flex; /* Use flexbox layout */
+ 
+ /* Spread the images across the container with equal space */
+  align-items: center; /* Center the images vertically */
+}
+
+.image-row img {
+  width: 13 0px; /* Set a fixed width for the images */
+  height: 100px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the images cover the container without stretching */
+  margin-bottom: 10px; /* Add some spacing between the images */
+}
+
 
   
