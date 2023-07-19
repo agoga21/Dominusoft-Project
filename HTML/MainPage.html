@@ -13,15 +13,18 @@
 
 </head>
 <body>
-    <div class="mainDiv">
-        <nav class="navBar">
+    <nav class="navBar">
+            
             <a href="../HTML/MainPage.html">Home</a>
             <a href="#">Service</a>
-            <a href="CatalogPage.html">Catalog</a>
+            <a href="#">Catalog</a>
             <a href="#">Parts</a>
             <a href="#">About Us</a>
+            <a href="#" class="toggle-button">&#9776;</a>
             <!-- per navigation barin -->
         </nav>
+    <div class="mainDiv">
+        
         <br><br><br>
         <span class="search-container">
 
@@ -106,7 +109,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -114,7 +117,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -122,7 +125,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -130,7 +133,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -144,7 +147,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -152,7 +155,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -160,7 +163,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -168,7 +171,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -200,6 +203,16 @@
                 prevEl: '.swiper-button-prev',  // Specify the previous button selector
             },
         });
+
+        
+        // Responsive navigation bar toggle
+        const toggleButton = document.querySelector('.toggle-button');
+        const navBar = document.querySelector('.navBar');
+
+        toggleButton.addEventListener('click', () => {
+            navBar.classList.toggle('active');
+        });
+    
     </script>
 
 
