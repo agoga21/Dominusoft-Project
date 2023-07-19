@@ -258,10 +258,22 @@ hr{
   
   /* media*/
 
-
-.navBar .toggle-button {
+  .navbar .toggle-button{
     display: none;
+  }
+  .navBar.active .toggle-button {
+    align-items: end;
+    
+  }
+.navBar.active {
+  flex-direction: column;
+  align-items: flex-start; /* Align the links to the right when active */
+  background-color: black;
 }
+.navBar::before {
+  display: none;
+}
+
 
 @media screen and (max-width: 768px) {
     .navBar a:not(.toggle-button) {
@@ -296,6 +308,35 @@ hr{
     width: 300px;
   }
 }
-  
+@media screen and (min-width: 769px) {
+  .navBar a:not(.toggle-button) {
+      display: block;
+  }
 
-  
+  .navBar .toggle-button {
+      display: none;
+  }
+}
+.navBar a:not(.toggle-button) {
+  text-decoration: none; /* Remove default underline */
+  color: #ffffff; /* Change link color */
+  overflow: hidden; /* Hide the underline overflow */
+  position: relative; /* Position relative for pseudo-element */
+}
+
+.navBar a:not(.toggle-button)::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #4a47a3; /* Change underline color on hover */
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navBar a:not(.toggle-button):hover::before {
+  transform: scaleX(1);
+}
