@@ -170,7 +170,6 @@ p{
     max-height: 1000px; /* Adjust the height as needed */
     position: relative;
     overflow: hidden;
-    overflow: hidden;
   }
   
 /* End of that css*/
@@ -297,6 +296,22 @@ hr{
     .search-container{
       height: 460px;
       width: 220px;
+    }
+
+
+       .image-row{
+        display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Spread the images across the container with equal space */
+  align-items: center;
+  padding-left: 5px;
+    padding-right: 5px;
+       }
+
+    .image-row img {
+      width: 50px; /* Set the image width to 100% to make it responsive */
+      max-height: 35px; 
+  object-fit: cover; /* Maintain the image's aspect ratio within the container */
+  margin-bottom: 10px;
     }
 }
 @media screen and(min-width: 768px){
