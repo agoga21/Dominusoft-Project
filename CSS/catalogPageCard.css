@@ -1,99 +1,105 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .col-xs-12 {
-    width: 100%;
-  }
-  
-  .col-md-6 {
-    width: 50%;
-  }
-  
-  .bootstrap.snippets.bootdeys {
-    margin-bottom: 20px;
-  }
-  
-  .product-wrap {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .product-image {
-    position: relative;
-  }
-  
-  .product-image img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .tag2.hot {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: red;
-    color: #fff;
-    padding: 3px 5px;
-    border-radius: 3px;
-    font-size: 12px;
-  }
-  
-  .product-deatil {
-    padding: 10px;
-  }
-  
-  .name a {
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .name span {
-    color: #999;
-    font-size: 12px;
-  }
-  
-  .price-container {
-    margin-top: 10px;
-  }
-  
-  .price-container span {
-    color: #337ab7;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .tag1,
-  .description {
-    margin-top: 10px;
-  }
-  
-  .btn.btn-success {
-    background-color: #5cb85c;
-    color: #fff;
-    border-radius: 3px;
-    padding: 6px 12px;
-  }
-  
-  .rating {
-    margin-top: 10px;
-  }
-  
-  .rating label {
-    margin-right: 5px;
-    color: #ffdd00;
-  }
-  
-  .rating label i {
-    font-size: 16px;
-  }
-  
-  .rating label i.fa-star {
-    color: #ffd700;
-  }
-  
-  .rating label i.fa-star.text-primary {
-    color: #337ab7;
-  }
+ @import url(' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"');
+
+.secondDiv{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/background1.jpg");
+}
+ .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-xs-12 {
+  width: 100%;
+}
+
+.col-md-6 {
+  width: 50%;
+}
+
+.bootstrap.snippets.bootdeys {
+  margin-bottom: 20px;
+}
+
+.product-wrap {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.product-image {
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.tag2.hot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: #fff;
+  padding: 3px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.product-deatil {
+  padding: 10px;
+}
+
+.name a {
+  color: #333;
+  font-weight: bold;
+}
+
+.name span {
+  color: #999;
+  font-size: 12px;
+}
+
+.price-container {
+  margin-top: 10px;
+}
+
+.price-container span {
+  color: #337ab7;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tag1,
+.description {
+  margin-top: 10px;
+}
+
+.btn.btn-success {
+  background-color: #5cb85c;
+  color: #fff;
+  border-radius: 3px;
+  padding: 6px 12px;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+.rating label {
+  margin-right: 5px;
+  color: #ffdd00;
+}
+
+.rating label i {
+  font-size: 16px;
+}
+
+.rating label i.fa-star {
+  color: #ffd700;
+}
+
+.rating label i.fa-star.text-primary {
+  color: #337ab7;
+}
+
