@@ -10,38 +10,7 @@ body{
     padding: 30px;
     color: white;
 }
-.navBar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: transparent; /* Set the background to transparent */
-  padding: 10px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-}
-.navBar a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  transition: background-color 0.3s ease;
-  border-radius: 4px;
-}
-.navBar a:hover {
-  background-color: #555;
-}
-.navBar a.active {
-  background-color: #777;
-}
-/* Add a subtle gradient background effect */
-.navBar {
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)); /* Apply a gradient with transparency */
-}
+
 
 .aboutUs{
     padding: 30px;
@@ -107,7 +76,6 @@ body{
   display: inline-block;
   overflow: hidden;
 }
-/* Apply the image enlargement effect on hover */
 .image-row img {
   transition: transform 0.2s ease;
   cursor: pointer;
@@ -180,7 +148,7 @@ margin-bottom: 10px;
     margin: 20px;
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    width: calc(50% - 40px); /* Adjusted width to occupy 50% of the row with margin included */
+    width: calc(50% - 40px);
   }
   
   .card-text {
@@ -200,13 +168,11 @@ margin-bottom: 10px;
   }
 
   .swiper-container {
-    /* Set a fixed height or a maximum height for the container */
-    max-height: 1000px; /* Adjust the height as needed */
+    max-height: 1000px; 
     position: relative;
     overflow: hidden;
   }
   
-/* End of that css*/
 .PC1{
     width: 380px;
     height: 400px;
@@ -232,38 +198,8 @@ hr{
   .bestSellerH1{
     text-align: center;
   }
-  
-  /* media*/
-
-  .navbar .toggle-button{
-    display: none;
-  }
-  .navBar.active .toggle-button {
-    align-items: end;
-    
-  }
-.navBar.active {
-  flex-direction: column;
-  align-items: flex-start; /* Align the links to the right when active */
-  background-color: black;
-}
-.navBar::before {
-  display: none;
-}
-
-
 @media screen and (max-width: 768px) {
-    .navBar a:not(.toggle-button) {
-        display: none;
-    }
-
-    .navBar .toggle-button {
-        display: block;
-    }
-
-    .navBar.active a:not(.toggle-button) {
-        display: block;
-    }
+    
     .image-container .keyboard{
       display: none;
     }
@@ -271,22 +207,37 @@ hr{
       height: 250px;
       width: 250px;
     }
-    
-
-
   .image-row{
-  display: flex; /* Use flexbox layout */
-  justify-content: space-between; /* Spread the images across the container with equal space */
+  display: flex; 
+  justify-content: space-between; 
   align-items: center;
   padding-left: 5px;
   padding-right: 5px;
   }
 
     .image-row img {
-      width: 50px; /* Set the image width to 100% to make it responsive */
+      width: 50px; 
       max-height: 35px; 
   
   margin-bottom: 10px;
+    }
+
+    .card-container {
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center; /* Center cards horizontally */
+      justify-content: center; /* Center cards vertically */
+      height: auto; /* Adjust the height to fit the content */
+    }
+  
+    .card {
+      width: 65%; /* Adjust the card's maximum width to fit the screen */
+      margin: 20px 0; /* Add vertical margin to separate cards */
+      display: flex; /* Change the display to flex to keep image and content together */
+      flex-direction: column; /* Stack image and content vertically */
+    }
+  
+    .inside-container {
+      width: 100%; /* Make the images inside the card container full width */
     }
 }
 @media screen and(min-width: 768px){
@@ -297,36 +248,4 @@ hr{
     height: 300px;
     width: 300px;
   }
-}
-@media screen and (min-width: 769px) {
-  .navBar a:not(.toggle-button) {
-      display: block;
-  }
-
-  .navBar .toggle-button {
-      display: none;
-  }
-}
-.navBar a:not(.toggle-button) {
-  text-decoration: none; /* Remove default underline */
-  color: #ffffff; /* Change link color */
-  overflow: hidden; /* Hide the underline overflow */
-  position: relative; /* Position relative for pseudo-element */
-}
-
-.navBar a:not(.toggle-button)::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: #4a47a3; /* Change underline color on hover */
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.navBar a:not(.toggle-button):hover::before {
-  transform: scaleX(1);
 }
