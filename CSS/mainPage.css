@@ -43,12 +43,6 @@ body{
   background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)); /* Apply a gradient with transparency */
 }
 
-
-.pcBrands{
-    padding: 30px;
-    background-color: purple;
-    color: white;
-}
 .aboutUs{
     padding: 30px;
     
@@ -105,6 +99,9 @@ body{
     background-size: cover; 
     background-position: center;
     background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    background-color: purple;
+    color: white;
 }
 .description {
     font-size: 30px;
@@ -251,8 +248,8 @@ hr{
     .image-row img {
       width: 50px; /* Set the image width to 100% to make it responsive */
       max-height: 35px; 
-  object-fit: cover; /* Maintain the image's aspect ratio within the container */
-  margin-bottom: 10px;
+      object-fit: cover; /* Maintain the image's aspect ratio within the container */
+      margin-bottom: 10px;
     }
 }
 @media screen and(min-width: 768px){
