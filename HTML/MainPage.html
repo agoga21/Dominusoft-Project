@@ -6,8 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/mainPage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="stylesheet" href="../CSS/mainPageFooter.css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../CSS/mainPageFooter.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -19,7 +19,7 @@
             <a href="#">Service</a>
             <a href="CatalogPage.html">Catalog</a>
             <a href="#">Parts</a>
-            <a href="AboutUs.html">About Us</a>
+            <a href="#">About Us</a>
             <!-- per navigation barin -->
         </nav>
         <br><br><br>
@@ -87,13 +87,13 @@
         <h1 class="bestSellerH1">Best seller brands</h1>
         <br>
         <div class="image-row"> 
-            <img src="../Photo/Dell_thumbnail (1).png" alt="" style="width: 150; height: 110px;">
-            <img src="../Photo/plsWork.png" alt=""style="width: 130; height: 110px;">
-            <img src="../Photo/lenovo.png" alt="" style="width: 150; height: 110px;">
-            <img src="../Photo/nig.png" alt="" style="width: 150; height: 110px;">
-            <img src="../Photo/apple_thumbnail.png" alt="" style="width: 150; height: 110px;">
-            <img src="../Photo/download.png" alt="" style="width: 150; height: 100px;">
-            <img src="../Photo/Windows_logo_-_2012.svg.png" alt="" style="width: 100px; height: 100px; padding-top: 5px;">   
+            <img src="../Photo/Dell_thumbnail (1).png" alt="">
+            <img src="../Photo/plsWork.png" alt="">
+            <img src="../Photo/lenovo.png" alt="" >
+            <img src="../Photo/nig.png" alt="" >
+            <img src="../Photo/download (1).png" alt="">
+            <img src="../Photo/download.png" alt="" >
+            <img src="../Photo/Windows_logo_-_2012.svg.png" alt="">   
         </div>
         <br>
         <h1 class="bestSellerH1">Editors recommendation</h1>
@@ -106,7 +106,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -114,7 +114,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -122,7 +122,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -130,7 +130,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -144,7 +144,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -152,7 +152,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -160,7 +160,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -168,7 +168,7 @@
                         <div class="card">
                             <div class="card-text">
                                 <h2>Workstation</h2>
-                                <p>All in one. PC, monitor, mouse and keyboard.</p>
+                                <p>All in one. PC, monitor, mouse and keyboard.</p><br>
                                 <button class="btn">$1000</button>
                             </div>
                             <img src="../Photo/img1.jpg" alt="" class="inside-container">
@@ -200,16 +200,27 @@
                 prevEl: '.swiper-button-prev',  // Specify the previous button selector
             },
         });
+
+        
+        // Responsive navigation bar toggle
+        const toggleButton = document.querySelector('.toggle-button');
+        const navBar = document.querySelector('.navBar');
+
+        toggleButton.addEventListener('click', () => {
+            navBar.classList.toggle('active');
+        });
+        
+    
     </script>
 
 
     
 <div class="latestThings">
-        <div class="column">
-            <p class="about">
-                Welcome at Pc Hub, your ultimate destination for all your computer needs.At Pc Hub
-                ,we are passionate about technology and strive to provide our costumers with top-notch
-                prducts, exceptional service, and an unmatched shopping experience.<br>
+    <div class="column">
+    <p class="about">
+        Welcome at Pc Hub, your ultimate destination for all your computer needs.At Pc Hub
+        ,we are passionate about technology and strive to provide our costumers with top-notch
+        prducts, exceptional service, and an unmatched shopping experience.<br>
 
                 With years of industry ...
             </p><br><br><br>
