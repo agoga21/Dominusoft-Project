@@ -129,6 +129,12 @@ p{
     padding-right: 150px;
 }
 
+.image-row img {
+  width: 140px; 
+  height: 100px; 
+margin-bottom: 10px;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -248,8 +254,8 @@ hr{
     .image-row img {
       width: 50px; /* Set the image width to 100% to make it responsive */
       max-height: 35px; 
-      object-fit: cover; /* Maintain the image's aspect ratio within the container */
-      margin-bottom: 10px;
+  
+  margin-bottom: 10px;
     }
 }
 @media screen and(min-width: 768px){
