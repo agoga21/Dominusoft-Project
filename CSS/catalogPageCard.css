@@ -7,11 +7,15 @@ body{
 	background-color: #180032;
     padding: 70px 0;
 }
+.product-content:hover{
+  transform: scale(1.1);
+  background: linear-gradient(right bottom, #d760e0);
+}
 .product-content {
   border: 2px solid #dfe5e9;
   margin-bottom: 20px;
   margin-top: 12px;
-  background: #fff;
+  background:#fff;
   padding: 4px;
       -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
@@ -71,7 +75,7 @@ body{
 }
 
 .product-content .product-deatil span.discount {
-  background-color: #71e134
+  background-color: purple
 }
 
 .product-content .product-deatil span.hot {
@@ -142,7 +146,7 @@ body{
 .product-entry .product-deatil p.price-container span,
 .shipping table tbody tr td p.price-container span,
 .shopping-items table tbody tr td p.price-container span {
-  color: #21c2f8;
+  color: purple;
   font-family: Lato, sans-serif;
   font-size: 24px;
   line-height: 20px
@@ -319,4 +323,20 @@ body{
   .product-content .product-info {
       position: relative
   }
+}
+
+.btn-success {
+  color: #fff;
+  background-color: purple;
+  border-color: purple;
+}
+
+.btn-success:hover {
+  color:purple;
+  background-color: #fff;
+  border-color: purple;
+}
+
+.text-primary {
+  color: purple;
 }
