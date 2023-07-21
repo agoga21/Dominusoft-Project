@@ -21,6 +21,9 @@
     text-align: justify;
     /* bej brenda div paragrafin dhe jepi height dhe width te njejte*/
 }
+.parag{
+  line-height: 40px;
+}
 .abt-photo{
     width: 300px;
     height: 300px;
@@ -38,6 +41,7 @@
 .abt-title{
     font-size: 70px;
     font-family: cursive;
+
 }
 .team-carousel {
     display: flex;
