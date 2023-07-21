@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/mainPage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../CSS/AbouUs.css">
+        <link rel="stylesheet" href="../CSS/mainPageFooter.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+<body>
+    <div class="mainDiv">
+        <nav class="navBar">
+            <a href="../HTML/MainPage.html">Home</a>
+            <a href="#">Service</a>
+            <a href="CatalogPage.html">Catalog</a>
+            <a href="#">Parts</a>
+            <a href="../HTML/AboutUs.html">About Us</a>
+            <!-- per navigation barin -->
+        </nav>
+    </div>
+        <div class="first-part">
+            <h1 class="abt-title">About Us</h1>
+            <div class="about">
+            <p class="abt-txt">
+                Welcome to PC Hub, your ultimate destination for all things PC-related! Established with a passion for technology and a commitment to customer satisfaction, PC Hub strives to provide the finest selection of top-notch computer hardware, software, and accessories.
+                Whether you are a seasoned gamer seeking cutting-edge graphics cards and peripherals or a professional looking to upgrade your workstation, our knowledgeable and friendly team is here to guide you on your tech journey. 
+                With a diverse range of products from leading brands and a focus on staying ahead of the latest trends, we aim to cater to every computing need. At PC Hub, we believe that building strong relationships with our customers is the key to success, and we take pride in delivering unparalleled service and support.
+                Discover the possibilities and unlock the true potential of your PC with PC Hub - your one-stop shop for all things computing! 
+            </p>
+            <img src="../Photo/abt us.png" class="abt-photo">
+            </div>
+            <h1 class="abt-title">Our Mission</h1>
+            <div class="about">
+                <img src="../Photo/our mission.png" class="abt-photo">
+                <p class="abt-txt">         
+                    At PC Hub, our mission is to empower and inspire individuals and businesses by providing them with exceptional PC solutions. We are committed to offering a curated selection of high-quality products that cater to various computing needs, from gaming enthusiasts to creative professionals and beyond. 
+                    Our goal is to become a trusted partner for our customers, offering not only top-tier hardware and software but also expert advice and personalized support. We strive to create an inclusive and welcoming environment where technology enthusiasts can find their perfect PC components while fostering a community that shares their passion.
+                    With a focus on innovation, reliability, and continuous improvement, we aim to be at the forefront of the ever-evolving tech landscape, ensuring that our customers stay ahead in their digital pursuits. 
+                    At PC Hub, we believe in the transformative power of technology, and we are dedicated to making the PC experience accessible, enjoyable, and truly rewarding for all.
+                 </p>
+            </div>
+            <div class="team">
+                <p class="abt-title">Meet Our Team</p>
+                <div class="team-carousel">
+                    <div class="team-slide">
+                      <img src="../Photo/man5.png" class="team-mem">
+                      <h3>Kevin Pula</h3>
+                      <p>Software Engineer</p>
+                    </div>
+                    <div class="team-slide">
+                      <img src="../Photo/man6.png" class="team-mem">
+                      <h3>Paulin Sema</h3>
+                      <p>Front-end developer</p>
+                    </div>
+                    <div class="team-slide">
+                        <img src="../Photo/man3.png" class="team-mem">
+                        <h3>Angjelo Goga</h3>
+                        <p>Back-end developer</p>
+                      </div>
+                      <div class="team-slide">
+                        <img src="../Photo/man4.png"class="team-mem">
+                        <h3>Andi Sheta</h3>
+                        <p>Designer</p>
+                      </div>
+                  </div>
+                  
+                        <script>
+                      const carousel = document.querySelector('.team-carousel');
+                                const slides = document.querySelectorAll('.team-slide');
+
+                                let currentIndex = 0;
+
+                                function showSlide(index) {
+                                slides.forEach((slide, i) => {
+                                    slide.style.transform = `translateX(${100 * (i - index)}%)`;
+                                });
+                                }
+
+                                function showNextSlide() {
+                                currentIndex = (currentIndex + 1) % slides.length;
+                                showSlide(currentIndex);
+                                }
+
+                                function showPrevSlide() {
+                                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                                showSlide(currentIndex);
+                                }
+
+                                setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+
+                                showSlide(currentIndex);
+
+                        </script>
+            </div>
+        </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Reach to Us</h4>
+                    <ul>
+                        <li><a href="https://goo.gl/maps/Bk2WFKBgYETUSXpy7">2203 E. Empire Street, Suite J Bloomington, IL, USA 61704</a></li>
+                        <li><a href="#"> Phone: +355692085698</a></li>
+                        <li><a href="#">Phone: +44-458-20-369</a></li>
+                        <li><a href="#">Email: pcstore@yahoo.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Shopping</h4>
+                    <ul>
+                        <li><a href="#">Product Availability</a></li>
+                        <li><a href="#">Online Order Restrictions</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Credit Cards Accepted</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Costumer service</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Check Order Status</a></li>
+                        <li><a href="#">Recycling</a></li>
+                        <li><a href="#">Frequently Asked Questions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect with Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><p class="footer-copyright">
+            &copy; 2023 PC STORE. All rights reserved.
+        </p>
+   </footer>
+</body>
+</html>
