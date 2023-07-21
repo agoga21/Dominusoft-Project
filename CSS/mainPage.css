@@ -103,6 +103,37 @@ body{
     background-color: purple;
     color: white;
 }
+.image-row {
+  display: inline-block;
+  overflow: hidden;
+}
+/* Apply the image enlargement effect on hover */
+.image-row img {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+#img1:hover{
+  transform: scale(1.2); 
+}
+#img2:hover{
+  transform: scale(1.2);
+}
+#img3:hover{
+  transform: scale(1.2); 
+}
+#img4:hover{
+  transform: scale(1.2); 
+}
+#img5:hover{
+  transform: scale(1.2); 
+}
+#img6:hover{
+  transform: scale(1.2);
+}
+#img7:hover{
+  transform: scale(1.2); 
+}
+
 .description {
     font-size: 30px;
     font-family:'VT323', monospace ;
