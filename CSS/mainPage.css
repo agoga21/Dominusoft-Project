@@ -260,6 +260,24 @@ hr{
   
   margin-bottom: 10px;
     }
+
+    .card-container {
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center; /* Center cards horizontally */
+      justify-content: center; /* Center cards vertically */
+      height: auto; /* Adjust the height to fit the content */
+    }
+  
+    .card {
+      width: 65%; /* Adjust the card's maximum width to fit the screen */
+      margin: 20px 0; /* Add vertical margin to separate cards */
+      display: flex; /* Change the display to flex to keep image and content together */
+      flex-direction: column; /* Stack image and content vertically */
+    }
+  
+    .inside-container {
+      width: 100%; /* Make the images inside the card container full width */
+    }
 }
 @media screen and(min-width: 768px){
   .image-container .keyboard{
