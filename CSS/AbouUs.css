@@ -19,7 +19,6 @@
     margin: 10px;
     border-radius: 20px;
     text-align: justify;
-    /* bej brenda div paragrafin dhe jepi height dhe width te njejte*/
 }
 .parag{
   line-height: 40px;
@@ -79,3 +78,18 @@
     height: 100px;
     width: 100px;
 }  
+.mapouter{
+  position:relative;
+  text-align:right;
+  width:100%;
+  height:400px;
+}
+.gmap_canvas {
+  overflow:hidden;
+  background:none!important;
+  width:100%;
+  height:400px;
+}
+.gmap_iframe {
+  height:400px!important;
+}
