@@ -326,7 +326,7 @@ body{
   }
 }
 
-.btn-success {
+.btn-success, .btn-success:focus, .btn-success:active {
   color: #fff;
   background-color: purple;
   border-color: purple;
