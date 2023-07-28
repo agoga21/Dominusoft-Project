@@ -90,3 +90,14 @@ ul{
 	font-size: 14px;
 }
 /*deri ketu per footerin*/
+@media screen and (max-width: 600px) {
+	.row{
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.footer-col{
+		width: 50%;
+		padding: 0 15px;
+	 }
+}
