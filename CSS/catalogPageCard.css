@@ -8,6 +8,9 @@ body{
 	background-color: #180032;
     padding: 70px 0;
 }
+.button{
+  text-align: center;
+}
 .product-content:hover{
   transform: scale(1.1);
   background: linear-gradient(right bottom, #d760e0);
@@ -340,4 +343,9 @@ body{
 
 .text-primary {
   color: purple;
+}
+
+.button:hover{
+  color:purple;
+  border-color: purple;
 }
