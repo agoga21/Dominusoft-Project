@@ -93,3 +93,51 @@
 .gmap_iframe {
   height:400px!important;
 }
+/* styles.css */
+
+/* The existing CSS styles remain unchanged */
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .about {
+      flex-direction: column;
+  }
+
+  .abt-photo {
+      width: 200px;
+      height: 200px;
+  }
+
+  .abt-title {
+      font-size: 40px;
+  }
+
+  .abt-txt {
+      font-size: 16px;
+      padding: 5px;
+      margin: 5px;
+  }
+
+  .team-carousel {
+      overflow-x:auto;
+  }
+
+  .team-slide {
+      flex: 0 0 80%;
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+
+  .team-slide img {
+      max-width: 100px;
+  }
+
+  .team-slide h3 {
+      font-size: 16px;
+  }
+
+  .mapouter,
+  .gmap_canvas {
+      height: 300px;
+  }
+}
