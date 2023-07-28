@@ -1,7 +1,8 @@
 body{
-  margin-top:20px;
+  margin-top:0;
   background:#eee;
 }
+
 .secondDiv{
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/background1.jpg");
 	background-color: #180032;
@@ -325,7 +326,7 @@ body{
   }
 }
 
-.btn-success {
+.btn-success, .btn-success:focus, .btn-success:active {
   color: #fff;
   background-color: purple;
   border-color: purple;
