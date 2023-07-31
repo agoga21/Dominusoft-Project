@@ -7,6 +7,7 @@
     <title>Catalog</title>
     <!--<link rel="stylesheet" href="../CSS/mainPage.css">-->
     <link rel="stylesheet" href="../CSS/navbar.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-fMIoX8a+x/5RoFKxHR9R5dzrdBptOYXN61YVPUmTr3uau1EL4itQGHEzZa8Fb1SHhvOJyTDMWskNx3P7RfyNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="../CSS/mainPageFooter.css">
@@ -21,7 +22,7 @@
 <body>
 
 	<nav class="navBar">
-        
+
 		<a href="../HTML/MainPage.html">Home</a>
 		<a href="CatalogPage.html">Catalog</a>
 		<a href="#">Parts</a>
@@ -33,17 +34,80 @@
 	
 	<br><br>
     <div class="secondDiv">
-		
-		<h1>Here you can find all the products:</h1>
+		<br>
+		<div class="button">
+			<button type="button" class="btn btn-light">
+				<i class="fas fa-star"></i> Best Products
+			</button>
+			<button type="button" class="btn btn-light">
+				<i class="fas fa-truck"></i> Fast Delivery
+			</button>
+			<button type="button" class="btn btn-light">
+				<i class="fas fa-shield-alt"></i> Safe Payment
+			</button>
+		</div>
+
+<!-- Add a search input field -->
+<input type="text" id="searchInput" placeholder="Search for laptops, desktops, or gaming laptops">
+
+<!-- Add a container to display the search results message -->
+<div id="searchResults"></div>
+
+<script>
+  // Function to filter products based on the search term
+  function filterProducts() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
+    const products = document.querySelectorAll('.product-content');
+
+    // Filter products based on the search input
+    products.forEach(product => {
+      const productName = product.dataset.category.toLowerCase();
+      if (productName.includes(searchInput)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+
+    // Show all products when the search input is empty
+    if (searchInput === '') {
+      products.forEach(product => {
+        product.style.display = 'block';
+      });
+    }
+
+    // Display a message when no matching products are found
+    const searchResults = document.getElementById('searchResults');
+    const matchingProducts = document.querySelectorAll('.product-content[style="display: block;"]');
+    if (matchingProducts.length === 0) {
+      searchResults.textContent = 'No matching products found.';
+    } else {
+      searchResults.textContent = '';
+    }
+  }
+
+  // Add a slight delay before filtering (250 milliseconds) to improve user experience
+  let filterTimeout;
+  document.getElementById('searchInput').addEventListener('input', () => {
+    clearTimeout(filterTimeout);
+    filterTimeout = setTimeout(filterProducts, 250);
+  });
+
+  // Call the filterProducts function on page load to show all products initially
+  filterProducts();
+</script>
+
+		<br>
+		<br>
 		<!-- Link to jQuery -->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 	<!-- Link to Bootstrap JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <div class="container">
-    <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+    <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -91,9 +155,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -139,9 +203,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -187,9 +251,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -236,9 +300,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="gaming laptop" class="product-content product-wrap clearfix" data-category="gaming laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -284,9 +348,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -335,7 +399,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -385,7 +449,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -435,7 +499,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -485,257 +549,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/Product1.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								ASUS Zenbook 14 Flip OLED (UP3404) <span>Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$800.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>14” 2.8K OLED convertible laptop
-                        16:10, 2.8K (2880 by 1800) high resolution, OLED NanoEdge touchscreen, 0.2 ms response time, 100% DCI-P3 color gamut, up to 550 nits peak brightness </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div class="product-content product-wrap clearfix">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/Product1.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								ASUS Zenbook 14 Flip OLED (UP3404) <span>Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$800.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>14” 2.8K OLED convertible laptop
-                        16:10, 2.8K (2880 by 1800) high resolution, OLED NanoEdge touchscreen, 0.2 ms response time, 100% DCI-P3 color gamut, up to 550 nits peak brightness </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div class="product-content product-wrap clearfix">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/Product1.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								ASUS Zenbook 14 Flip OLED (UP3404) <span>Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$800.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>14” 2.8K OLED convertible laptop
-                        16:10, 2.8K (2880 by 1800) high resolution, OLED NanoEdge touchscreen, 0.2 ms response time, 100% DCI-P3 color gamut, up to 550 nits peak brightness </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div class="product-content product-wrap clearfix">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/Product1.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								ASUS Zenbook 14 Flip OLED (UP3404) <span>Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$800.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>14” 2.8K OLED convertible laptop
-                        16:10, 2.8K (2880 by 1800) high resolution, OLED NanoEdge touchscreen, 0.2 ms response time, 100% DCI-P3 color gamut, up to 550 nits peak brightness </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div class="product-content product-wrap clearfix">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/Product1.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								ASUS Zenbook 14 Flip OLED (UP3404) <span>Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$800.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>14” 2.8K OLED convertible laptop
-                        16:10, 2.8K (2880 by 1800) high resolution, OLED NanoEdge touchscreen, 0.2 ms response time, 100% DCI-P3 color gamut, up to 550 nits peak brightness </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
