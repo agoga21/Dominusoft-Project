@@ -4,11 +4,12 @@ body{
 }
 
 .secondDiv{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/background1.jpg");
-	background-color: #180032;
-    padding: 70px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/bg.jpg");
+  background-color: #180032;
+  background-size: cover;
 }
 .button{
+  margin-top: 100px;
   text-align: center;
 }
 .product-content:hover{
@@ -349,3 +350,33 @@ body{
   color:purple;
   border-color: purple;
 }
+
+/* Styles for the searchproducts container */
+.searchproducts {
+  max-width: 400px; /* Adjust the width as needed */
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Styles for the search input field */
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the search results container */
+#searchResults {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #fff;
+}
+
