@@ -4,11 +4,12 @@ body{
 }
 
 .secondDiv{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/background1.jpg");
-	background-color: #180032;
-  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/bg.jpg");
+  background-color: #180032;
+  background-size: cover;
 }
 .button{
+  margin-top: 100px;
   text-align: center;
 }
 .product-content:hover{
@@ -308,27 +309,6 @@ body{
   width: calc(100% - 70px)
 }
 
-@media only screen and (min-width:1024px) {
-  .product-content div[class*=col-md-4] {
-      padding-right: 0
-  }
-  .product-content div[class*=col-md-8] {
-      padding: 0 13px 0 0
-  }
-  .product-wrap div[class*=col-md-5] {
-      padding-right: 0
-  }
-  .product-wrap div[class*=col-md-7] {
-      padding: 0 13px 0 0
-  }
-  .product-content .product-image {
-      border-right: 1px solid #dfe5e9
-  }
-  .product-content .product-info {
-      position: relative
-  }
-}
-
 .btn-success, .btn-success:focus, .btn-success:active {
   color: #fff;
   background-color: purple;
@@ -348,4 +328,61 @@ body{
 .button:hover{
   color:purple;
   border-color: purple;
+}
+
+/* Styles for the searchproducts container */
+.searchproducts {
+  max-width: 400px; /* Adjust the width as needed */
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Styles for the search input field */
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the search results container */
+#searchResults {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #fff;
+}
+@media only screen and (min-width:768px) {
+  .product-content div[class*=col-md-4] {
+      padding-right: 0
+  }
+  .product-content div[class*=col-md-8] {
+      padding: 0 13px 0 0
+  }
+  .product-wrap div[class*=col-md-5] {
+      padding-right: 0
+  }
+  .product-wrap div[class*=col-md-7] {
+      padding: 0 13px 0 0
+  }
+  .product-content .product-image {
+      border-right: 1px solid #dfe5e9
+  }
+  .product-content .product-info {
+      position: relative
+  }
+}
+@media only screen and (max-width: 600px) {
+  .searchproducts {
+    max-width: 100%; 
+    position: static; 
+    margin: 20px; 
+    right: 0;
+  }
 }
