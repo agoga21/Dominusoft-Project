@@ -1,0 +1,122 @@
+
+body{
+    margin: 0;
+}
+.contactUsBg{
+    position: relative;
+    background: linear-gradient(to bottom right, rgb(33, 5, 74),rebeccapurple,black);
+    height: 120vh;
+    width: 100%;
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 120px;
+    background-color: white;
+    z-index: 2;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, textarea {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+
+  .figureContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .figure1{
+    background-color: whitesmoke;
+    height: 300px;
+    width: 20%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .figure2{
+    background-color: whitesmoke;
+    height: 300px;
+    width: 20%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .figure3{
+    background-color: whitesmoke;
+    height: 300px;
+    width: 20%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .figure1 i,
+  .figure2 i,
+  .figure3 i {
+    margin-top: 10px;
+    font-size: 50px;
+  }
+  .contactH1{
+    text-align: center;
+    font-family: 'VT323', monospace;
+  }
+  p{
+    font-family: 'VT323', monospace;
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'VT323', monospace;
+  }
+  .contactLastDiv{
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    background-image: url("../Photo/contactUsWp2.jpg");
+    z-index: 0;
+  }
+  
