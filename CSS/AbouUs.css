@@ -1,6 +1,7 @@
 .first-part{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/background1.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/bg.jpg");
     background-color: #180032;
+    background-size: cover;
     padding: 70px 0;
     color: white;
     text-align: center;
@@ -39,7 +40,7 @@
 }
 .abt-title{
     font-size: 70px;
-    font-family: cursive;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 .team-carousel {
