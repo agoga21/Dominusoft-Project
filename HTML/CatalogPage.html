@@ -44,6 +44,57 @@
 				<i class="fas fa-shield-alt"></i> Safe Payment
 			</button>
 		</div>
+
+<!-- Add a search input field -->
+<input type="text" id="searchInput" placeholder="Search for laptops, desktops, or gaming laptops">
+
+<!-- Add a container to display the search results message -->
+<div id="searchResults"></div>
+
+<script>
+  // Function to filter products based on the search term
+  function filterProducts() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
+    const products = document.querySelectorAll('.product-content');
+
+    // Filter products based on the search input
+    products.forEach(product => {
+      const productName = product.dataset.category.toLowerCase();
+      if (productName.includes(searchInput)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+
+    // Show all products when the search input is empty
+    if (searchInput === '') {
+      products.forEach(product => {
+        product.style.display = 'block';
+      });
+    }
+
+    // Display a message when no matching products are found
+    const searchResults = document.getElementById('searchResults');
+    const matchingProducts = document.querySelectorAll('.product-content[style="display: block;"]');
+    if (matchingProducts.length === 0) {
+      searchResults.textContent = 'No matching products found.';
+    } else {
+      searchResults.textContent = '';
+    }
+  }
+
+  // Add a slight delay before filtering (250 milliseconds) to improve user experience
+  let filterTimeout;
+  document.getElementById('searchInput').addEventListener('input', () => {
+    clearTimeout(filterTimeout);
+    filterTimeout = setTimeout(filterProducts, 250);
+  });
+
+  // Call the filterProducts function on page load to show all products initially
+  filterProducts();
+</script>
+
 		<br>
 		<br>
 		<!-- Link to jQuery -->
@@ -52,9 +103,9 @@
 	<!-- Link to Bootstrap JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <div class="container">
-    <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+    <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -102,9 +153,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -150,9 +201,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -198,9 +249,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -247,9 +298,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="gaming laptop" class="product-content product-wrap clearfix" data-category="gaming laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -295,9 +346,9 @@
 	</div>
 	<!-- end product -->
 </div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -346,7 +397,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -396,7 +447,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -446,7 +497,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
@@ -496,7 +547,7 @@
 </div>
 <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
 	<!-- product -->
-	<div class="product-content product-wrap clearfix">
+	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
