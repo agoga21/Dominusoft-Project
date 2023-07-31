@@ -4,18 +4,21 @@ body{
 }
 .contactUsBg{
     position: relative;
-    background: linear-gradient(to bottom right, rgb(33, 5, 74),rebeccapurple,black);
+    background-image: url("../Photo/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 120vh;
     width: 100%;
     z-index: 1;
 }
 
-.container {
+.containerForm{
     position: relative;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    margin-top: 120px;
+    margin-top: 160px;
+    margin-right: 500px;
     background-color: white;
     z-index: 2;
   }
@@ -105,6 +108,7 @@ body{
   .contactH1{
     text-align: center;
     font-family: 'VT323', monospace;
+    color: white;
   }
   p{
     font-family: 'VT323', monospace;
@@ -114,9 +118,15 @@ body{
   }
   .contactLastDiv{
     position: relative;
-    height: 80vh;
+    height: 120VH;
     width: 100%;
-    background-image: url("../Photo/contactUsWp2.jpg");
+    background: linear-gradient(to top, rgb(33, 5, 74),rebeccapurple,rgb(46,3,74));
+  
     z-index: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mapContainer{
+    padding-top: 300px;
   }
   
