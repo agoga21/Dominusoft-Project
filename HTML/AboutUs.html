@@ -7,15 +7,11 @@
     <title>Pc Hub-About Us</title>
     <link rel="icon" href="../Photo/icon.ico" sizes="96x96" type="image/icon type">
     <link rel="stylesheet" href="../CSS/navbar.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="../CSS/AbouUs.css">
     <link rel="stylesheet" href="../CSS/mainPageFooter.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
-<body>
+<body class="body">
     <div class="mainDiv">
         <nav class="navBar">
             <a href="../HTML/MainPage.html">Home</a>
@@ -68,58 +64,51 @@
                 </p>
             </div>
         </div>
+
+        <h1 class="abt-title">Meet Our Team</h1>
+
         <div class="team">
-            <p class="abt-title">Meet Our Team</p>
-            <div class="team-carousel">
-                <div class="team-slide">
-                    <img src="../Photo/man5.png" class="team-mem">
-                    <h3>Kevin Pula</h3>
-                    <p>Software Engineer</p>
-                </div>
-                <div class="team-slide">
-                    <img src="../Photo/man6.png" class="team-mem">
-                    <h3>Paulin Sema</h3>
-                    <p>Front-end developer</p>
-                </div>
-                <div class="team-slide">
-                    <img src="../Photo/man3.png" class="team-mem">
-                    <h3>Angjelos Goga</h3>
-                    <p>Back-end developer</p>
-                </div>
-                <div class="team-slide">
-                    <img src="../Photo/man4.png" class="team-mem">
-                    <h3>Andi Sheta</h3>
-                    <p>Designer</p>
-                </div>
+
+
+            <div class="team-slide">
+
+                <img src="../Photo/man5.png" class="team-mem">
+                <h3>Kevin Pula</h3>
+                <h3>Software Engineer</h3>
+                <h4>
+
+                    "As a software engineer, I solve complex problems elegantly with code."
+                </h4>
             </div>
+            <div class="team-slide">
+                <img src="../Photo/man6.png" class="team-mem">
+                <h3>Paulin Sema</h3>
+                <h3>Front-end developer</h3>
+                <h4>
 
-            <script>
-                const carousel = document.querySelector('.team-carousel');
-                const slides = document.querySelectorAll('.team-slide');
+                    "As a front-end developer, I bring designs to life with engaging and user-friendly web interfaces."
+                </h4>
+            </div>
+            <div class="team-slide">
+                <img src="../Photo/man3.png" class="team-mem">
+                <h3>Angjelos Goga</h3>
+                <h3>Back-end developer</h3>
+                <h4>
 
-                let currentIndex = 0;
+                    "As a back-end developer, I build and maintain server-side infrastructure for seamless application
+                    functionality."
+                </h4>
+            </div>
+            <div class="team-slide">
+                <img src="../Photo/man4.png" class="team-mem">
+                <h3>Andi Sheta</h3>
+                <h3>Designer</h3>
+                <h4>
 
-                function showSlide(index) {
-                    slides.forEach((slide, i) => {
-                        slide.style.transform = `translateX(${100 * (i - index)}%)`;
-                    });
-                }
+                    "As a web designer, I create beautiful interfaces that optimize user experience and drive meaningful
+                    online interactions."</h4>
 
-                function showNextSlide() {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    showSlide(currentIndex);
-                }
-
-                function showPrevSlide() {
-                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    showSlide(currentIndex);
-                }
-
-                setInterval(showNextSlide, 3000); // Change slide every 3 seconds
-
-                showSlide(currentIndex);
-
-            </script>
+            </div>
         </div>
         <h1 class="abt-title">Where to find us?</h1>
         <div class="about">
