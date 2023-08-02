@@ -318,7 +318,7 @@ body{
   border-color: purple;
 }
 
-.btn-success:hover {
+.btn-success:hover { 
   color:purple;
   background-color: #fff;
   border-color: purple;
@@ -388,5 +388,16 @@ body{
     position: static; 
     margin: 20px; 
     right: 0;
+  }
+  .kartat{
+    height: 820px;
+
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .product-content:hover {
+    transform: none;
+    background: white;
   }
 }
