@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Contact Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/contactUs.css">
     <link rel="stylesheet" href="../CSS/mainPageFooter.css">
@@ -50,13 +51,16 @@
         <br><br><br>
             <div class="containerForm">
                 <h2>Contact Us</h2>
-                <form action="#" method="post">
+                <form action="#" method="post" onsubmit="return validateForm()">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" >
+                    <p id="name1"></p>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" >
+                    <p id="email1"></p>
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" required ></textarea>
+                    <textarea id="message" name="message" ></textarea>
+                    <p id="message1"></p>
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -64,13 +68,34 @@
     </div>
 
     <div class="contactLastDiv">
-        <div class="mapContainer">
-            <iframe id="iframe1" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2201.7511019479766!2d19.816541504740467!3d41.32799396967642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1690794435553!5m2!1sen!2s" width="100%" height="600px" style="border:1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <div class="wrapper">
+
+            <div class="item">
+              <div class="polaroid"><img src="https://image.ibb.co/b8UJBc/administration_architecture_big_ben_221166.jpg">
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="polaroid"><img src="https://image.ibb.co/mmyvrc/anniversary_balloons_birthday_68369.jpg">
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="polaroid"><img src="https://image.ibb.co/hQaarc/antique_blur_camera_828378.jpg">
+                
+              </div>
+            </div>
+
+          </div>
+        
     </div>
-
-
+    <div class="mapContainer">
+        <iframe id="iframe1" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2201.7511019479766!2d19.816541504740467!3d41.32799396967642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1690794435553!5m2!1sen!2s" width="100%" height="600px" style="border:1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     <footer class="footer">
+        
         <div class="container">
             <div class="row">
                 <div class="footer-col">
@@ -116,6 +141,11 @@
             &copy; 2023 PC STORE. All rights reserved.
         </p>
    </footer> 
+
+    <script src="../Script/contactUs.js"></script>
+</body>
+
+    
     
 
 </html>
