@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!---->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Hub-Catalog</title>
-    <link rel="icon" href="../Photo/icon.ico"  sizes="96x96" type="image/icon type" >
 
-    <!--<link rel="stylesheet" href="../CSS/mainPage.css">-->
-    <link rel="stylesheet" href="../CSS/navbar.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-fMIoX8a+x/5RoFKxHR9R5dzrdBptOYXN61YVPUmTr3uau1EL4itQGHEzZa8Fb1SHhvOJyTDMWskNx3P7RfyNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../CSS/mainPageFooter.css">
+<head>
+	<!---->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PC Hub-Catalog</title>
+	<link rel="icon" href="../Photo/icon.ico" sizes="96x96" type="image/icon type">
+
+	<!--<link rel="stylesheet" href="../CSS/mainPage.css">-->
+	<link rel="stylesheet" href="../CSS/navbar.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-fMIoX8a+x/5RoFKxHR9R5dzrdBptOYXN61YVPUmTr3uau1EL4itQGHEzZa8Fb1SHhvOJyTDMWskNx3P7RfyNA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="stylesheet" href="../CSS/mainPageFooter.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../CSS/catalogPageCard.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
+
 <body>
 
 	<nav class="navBar">
@@ -29,10 +33,10 @@
 		<a href="../HTML/contactUs.html">Contact Us</a>
 		<a href="AboutUs.html">About Us</a>
 		<a href="#" class="toggle-button">&#9776;</a>
-	  
+
 	</nav>
-	
-    <div class="secondDiv">
+
+	<div class="secondDiv">
 		<br>
 		<div class="button">
 			<button type="button" class="btn btn-light">
@@ -47,606 +51,826 @@
 		</div>
 
 		<div class="searchproducts">
-			<!-- Add a search input field -->
-            <input type="text" id="searchInput" placeholder="Search for laptops, desktops, or gaming laptops">
+			<input type="text" id="searchInput" placeholder="Search products">
+			<div id="searchResults"></div>
+		</div>
 
-            <!-- Add a container to display the search results message -->
-            <div id="searchResults"></div>
-	    </div>
 
-<script>
-  // Function to filter products based on the search term
-  function filterProducts() {
-    const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
-    const products = document.querySelectorAll('.product-content');
+		<script>
+			// Function to filter products based on the search term
+			function filterProducts() {
+				const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
+				const products = document.querySelectorAll('.product-content');
 
-    // Filter products based on the search input
-    products.forEach(product => {
-      const productName = product.dataset.category.toLowerCase();
-      if (productName.includes(searchInput)) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
-    });
+				// Filter products based on the search input
+				products.forEach(product => {
+					const productName = product.dataset.category.toLowerCase();
+					if (productName.includes(searchInput)) {
+						product.style.display = 'block';
+					} else {
+						product.style.display = 'none';
+					}
+				});
 
-    // Show all products when the search input is empty
-    if (searchInput === '') {
-      products.forEach(product => {
-        product.style.display = 'block';
-      });
-    }
+				// Display a message when no matching products are found
+				const searchResults = document.getElementById('searchResults');
+				const matchingProducts = document.querySelectorAll('.product-content[style="display: block;"]');
+				if (matchingProducts.length === 0) {
+					searchResults.textContent = 'No matching products found.';
+				} else {
+					searchResults.textContent = '';
+				}
+			}
 
-    // Display a message when no matching products are found
-    const searchResults = document.getElementById('searchResults');
-    const matchingProducts = document.querySelectorAll('.product-content[style="display: block;"]');
-    if (matchingProducts.length === 0) {
-      searchResults.textContent = 'No matching products found.';
-    } else {
-      searchResults.textContent = '';
-    }
-  }
+			// Add a slight delay before filtering (250 milliseconds) to improve user experience
+			let filterTimeout;
+			document.getElementById('searchInput').addEventListener('input', () => {
+				clearTimeout(filterTimeout);
+				filterTimeout = setTimeout(filterProducts, 250);
+			});
 
-  // Add a slight delay before filtering (250 milliseconds) to improve user experience
-  let filterTimeout;
-  document.getElementById('searchInput').addEventListener('input', () => {
-    clearTimeout(filterTimeout);
-    filterTimeout = setTimeout(filterProducts, 250);
-  });
+			// Call the filterProducts function on page load to show all products initially
+			filterProducts();
+		</script>
 
-  // Call the filterProducts function on page load to show all products initially
-  filterProducts();
-</script>
 
 		<br>
 		<br>
 		<!-- Link to jQuery -->
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-	<!-- Link to Bootstrap JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <div class="container">
-    <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
-	<!-- product -->
-	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/Product1.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								ASUS Zenbook 14 Flip OLED (UP3404) <span>Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$800.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>14” 2.8K OLED convertible laptop
-                        16:10, 2.8K (2880 by 1800) high resolution, OLED NanoEdge touchscreen, 0.2 ms response time, 100% DCI-P3 color gamut, up to 550 nits peak brightness </p>
-				<br><br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
+		<!-- Link to Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="gaming">
+					<!-- product -->
+					<div id="gaming" class="product-content product-wrap clearfix kartat" data-category="gaming">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br><img src="../Photo/razer18.jpg" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a href="https://www.bestbuy.com/site/razer-blade-18-18-gaming-laptop-qhd-240-hz-intel-24-core-i9-13950hx-nvidia-geforce-rtx-4090-32gb-ram-2tb-ssd-black/6533840.p?skuId=6533840">
+											Razer Blade 18 <span>Gaming Laptop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$2899.00</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>Get the ultimate desktop replacement with the most powerful laptop we’ve ever
+										made,
+										featuring the latest Intel® 13th Gen Core™ i9 HX processors and NVIDIA® GeForce
+										RTX™
+										40 Series graphics. </p>
+										<br><br><br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="gaming">
+					<!-- product -->
+					<div id="gaming" class="product-content product-wrap clearfix kartat" data-category="gaming">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br><img src="../Photo/gaming-lp2.jpg" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://rog.asus.com/laptops/rog-zephyrus/rog-zephyrus-g14-series/">
+											Asus ROG Zephyrus G14. <span>Gaming Laptop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$1599.00</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>Dynamic and ready to travel, the pioneering ROG Zephyrus G14 is the world’s most
+										powerful 14-inch Windows 10 Pro gaming laptop.
+									</p> <br><br><br><br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
+					<!-- product -->
+					<div id="desktop" class="product-content product-wrap clearfix kartat" data-category="desktop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/hp-desktop.png" alt="194x228"
+										class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://www.hp.com/us-en/shop/pdp/hp-pavilion-desktop-tp01-3055xt-bundle-pc">
+											HP Pavilion Desktop TP01-3055xt <span>Desktop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$799.99</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>Intel Core i7-12700 (2.1 GHz base frequency, up to 4.9 GHz with Intel Turbo Boost
+										Technology, 25 MB L3 cache, 12 cores, 20 threads) </p>
+										<br><br><br><br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
+					<!-- product -->
+					<div id="desktop" class="product-content product-wrap clearfix kartat" data-category="desktop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/xps1.webp" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://www.dell.com/en-us/shop/desktop-computers/sr/desktops/xps-desktops">
+											XPS Desktop <span>Desktop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$899.99</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>An elegant desktop that gives your ideas room to grow—with infinite
+										expandability,
+										monstrous performance and blazing-fast speeds. </p>
+										<br><br><br><br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="gaming">
+					<!-- product -->
+					<div id="gaming" class="product-content product-wrap clearfix kartat" data-category="gaming">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br><img src="../Photo/gaming-lp3.jpg" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://rog.asus.com/laptops/rog-strix/rog-strix-g16-2023-series/">
+											Asus Rog Strix G16 16″ <span>Gaming Laptop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$1738.77</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p> Draw more frames and win more games with Windows 11, a 13th Gen Intel Core
+										i9-13980HX processor, and an NVIDIA GeForce RTX 4070 Laptop GPU at 140W Max TGP
+									</p> <br><br><br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="gaming">
+					<!-- product -->
+					<div id="gaming" class="product-content product-wrap clearfix kartat" data-category="gaming">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/razerBlade1.jpg" alt="194x228"
+										class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://www.bestbuy.com/site/razer-blade-15-15-6-gaming-laptop-qhd-240hz-intel-core-i7-nvidia-geforce-rtx-3080-ti-32gb-ram-1tb-ssd-black/6499097.p?skuId=6499097">
+											Razer - Blade 15 - 15.6" Gaming Laptop - QHD- 240HZ - Intel Core i7 <span>Gaming Laptop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$3,099.99</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p> Intel 12th Gen 14-Core CPU
+										With PCIe Gen4 performance and DDR5 memory for speeds of up to 4800MHz,
+										 the new Intel i7-12800H 14-core processor is able to keep pace with the most resource-hungry tasks without breaking a sweat.
+									</p> <br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6"> 
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
+					<!-- product -->
+					<div id="desktop" class="product-content product-wrap clearfix kartat" data-category="desktop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/Product2.png" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a href="https://www.hp.com/us-en/shop/mdp/desktops/omen-40l-gaming-desktop">
+											OMEN 40L Gaming Desktop PC GT21-1001a <span>Desktop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$2932.00</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>13th Generation Intel® Core™ i7 processor Windows 11 Home NVIDIA® GeForce RTX™
+										3070
+										(8 GB GDDR6 dedicated) with LHR Kingston FURY 16 GB DDR5-4000 MHz XMP RGB
+										Heatsink
+										RAM (2 x 8 GB) 1 TB WD Black PCIe® NVMe™ TLC M.2 SSD Weighs 18.7 kg </p> 
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="#" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
+					<!-- product -->
+					<div id="desktop" class="product-content product-wrap clearfix kartat" data-category="desktop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/Product3.avif" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a href="https://www.hp.com/au-en/shop/hp-pavilion-31-5-inch-all-in-one-desktop-pc-32-b0004a-6r1f0pa.html">
+											HP Pavilion 31.5 inch All-in-One Desktop PC 32-b0004a Bundle
+											<span>Desktop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$3599.00</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>12th Generation Intel® Core™ i5 processor Windows 11 Home 31.5" diagonal QHD
+										display
+										16 GB DDR4-3200 MHz RAM (2 x 8 GB) 512 GB PCIe® NVMe™ TLC M.2 SSD Intel® UHD
+										Graphics 730 Weighs 14 kg </p> <br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
+					<!-- product -->
+					<div id="laptop" class="product-content product-wrap clearfix kartat" data-category="laptop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/Product1.png" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
+											ASUS Zenbook 14 Flip OLED (UP3404) <span>Laptop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$800.00</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>14” 2.8K OLED convertible laptop
+										16:10, 2.8K (2880 by 1800) high resolution, OLED NanoEdge touchscreen, 0.2 ms
+										response time, 100% DCI-P3 color gamut, up to 550 nits peak brightness </p>
+									<br><br><br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
+					<!-- product -->
+					<div id="laptop" class="product-content product-wrap clearfix kartat" data-category="laptop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/MacBook.jpg" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://www.bestbuy.com/site/apple-macbook-pro-16-laptop-m2-pro-chip-16gb-memory-1tb-ssd-latest-model-space-gray/6450866.p?skuId=6450866">
+											Apple - MacBook Pro 16" Laptop - M2 Pro chip - 16GB Memory - 1TB SSD <span>Laptop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$800.00</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>
+										The 16-inch MacBook Pro with M2 Pro and M2 Max takes power and speed to the next level,
+										whether it’s on battery or plugged in. With a stunning Liquid Retina XDR display, 
+										all the ports you need, and all-day battery life—this pro laptop goes anywhere you need. </p> 
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6"> 
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
+					<!-- product -->
+					<div id="desktop" class="product-content product-wrap clearfix kartat" data-category="desktop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/Product6.png" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a href="https://www.apple.com/imac-24">
+											24‑inch iMac Apple <span>Desktop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$1399.99</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>M1 integrates the processor, graphics, memory, and more onto a single chip. That
+										let
+										us put an entire computer into a space so small it practically disappears. </p> <br><br><br>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
+					<!-- product -->
+					<div id="desktop" class="product-content product-wrap clearfix kartat" data-category="desktop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/OMENdesktop.jpg" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a href="https://www.bestbuy.com/site/hp-omen-omen-40l-gaming-desktop-amd-ryzen-5-5600g-16gb-hyperx-memory-nvidia-geforce-rtx-3060-ti-1tb-ssd/6535731.p?skuId=6535731">
+											HP OMEN - OMEN 40L Gaming Desktop - AMD Ryzen 5 5600G - 16GB HyperX Memory <span>Desktop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$1399.99</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>
+										Embrace your gaming destiny with the OMEN 40L Gaming Desktop PC.
+										 Reach peak levels through advanced customization with OMEN Gaming Hub, and a toolless access case. 
+										 The power to elevate your game.
+										 </p>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+				<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
+					<!-- product -->
+					<div id="laptop" class="product-content product-wrap clearfix kartat" data-category="laptop">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="product-image">
+									<br><br><br> <img src="../Photo/HPlaptop.jpg" alt="194x228" class="img-responsive">
+									<span class="tag2 hot">
+										HOT
+									</span>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<div class="product-deatil">
+									<h5 class="name">
+										<a
+											href="https://www.bestbuy.com/site/hp-victus-15-6-full-hd-144hz-gaming-laptop-intel-core-i5-13420h-8gb-memory-nvidia-geforce-rtx-3050-512gb-ssd-performance-blue/6535505.p?skuId=6535505">
+											HP - Victus 15.6" Full HD 144Hz Gaming Laptop - Intel Core i5-13420H <span>Laptop</span>
+										</a>
+									</h5>
+									<p class="price-container">
+										<span>$800.00</span>
+									</p>
+									<span class="tag1"></span>
+								</div>
+								<div class="description">
+									<p>
+										The HP Victus Laptop is made for peak PC gaming. This sleek machine touts a 13th Gen Intel Core processor¹ and a modern graphics card. This laptop’s design is just as impressive as its hardware with plenty of color options², updated thermals and an HD camera with Temporal Noise Reduction. </p>
+								</div>
+								<div class="product-info smart-form">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6"> 
+											<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="rating">
+												<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+												<label for="stars-rating-3"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-2"><i
+														class="fa fa-star text-primary"></i></label>
+												<label for="stars-rating-1"><i
+														class="fa fa-star text-primary"></i></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end product -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col">
+					<h4>Reach to Us</h4>
+					<ul>
+						<li><a href="https://goo.gl/maps/Bk2WFKBgYETUSXpy7">2203 E. Empire Street, Suite J Bloomington,
+								IL, SEMAN 61704</a></li>
+						<li><a href="#"> Phone: +355692085698</a></li>
+						<li><a href="#">Phone: +44-458-20-369</a></li>
+						<li><a href="#">Email: pcstore@yahoo.com</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Shopping</h4>
+					<ul>
+						<li><a href="#">Product Availability</a></li>
+						<li><a href="#">Online Order Restrictions</a></li>
+						<li><a href="#">Return Policy</a></li>
+						<li><a href="#">Credit Cards Accepted</a></li>
+						<li><a href="#">payment options</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Costumer service</h4>
+					<ul>
+						<li><a href="#">Help Center</a></li>
+						<li><a href="#">Check Order Status</a></li>
+						<li><a href="#">Recycling</a></li>
+						<li><a href="#">Frequently Asked Questions</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Connect with Us</h4>
+					<div class="social-links">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+						<a href="#"><i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
-	<!-- product -->
-	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-						<br><br><br>  <img src="../Photo/Product2.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="#">
-								OMEN 40L Gaming Desktop PC GT21-1001a <span>Desktop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$2932.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>13th Generation Intel® Core™ i7 processor Windows 11 Home NVIDIA® GeForce RTX™ 3070 (8 GB GDDR6 dedicated) with LHR Kingston FURY 16 GB DDR5-4000 MHz XMP RGB Heatsink RAM (2 x 8 GB) 1 TB WD Black PCIe® NVMe™ TLC M.2 SSD Weighs 18.7 kg </p>
-				</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> 
-							<a href="#" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
-	<!-- product -->
-	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-						<br><br><br>	<img src="../Photo/Product3.avif" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="#">
-								HP Pavilion 31.5 inch All-in-One Desktop PC 32-b0004a Bundle <span>Desktop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$3599.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>12th Generation Intel® Core™ i5 processor Windows 11 Home 31.5" diagonal QHD display 16 GB DDR4-3200 MHz RAM (2 x 8 GB) 512 GB PCIe® NVMe™ TLC M.2 SSD Intel® UHD Graphics 730 Weighs 14 kg </p>
-				</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> 
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="laptop">
-	<!-- product -->
-	<div id="laptop" class="product-content product-wrap clearfix" data-category="laptop">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-						<br><br><br>	<img src="../Photo/Product4.avif" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="#">
-								DELL XPS 13 Laptop <span>Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$1249.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>Dell XPS 13 (9310), 13.4- inch FHD+ Touch Laptop - Intel Core i7-1185G7, 16GB 4267MHz LPDDR4x RAM, 512GB SSD, Iris Xe Graphics, Windows 10 Pro - Platinum Silver with Black Palmrest</p>
-				<br>
-				</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> 
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="gaming">
-	<!-- product -->
-	<div id="gaming" class="product-content product-wrap clearfix" data-category="gaming">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-						<br><br><br>	<img src="../Photo/Product5.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="#">
-								Razer Blade 18 <span>Gaming Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$2899.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>Get the ultimate desktop replacement with the most powerful laptop we’ve ever made, featuring the latest Intel® 13th Gen Core™ i9 HX processors and NVIDIA® GeForce RTX™ 40 Series graphics. </p>
-				</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> 
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys" data-type="desktop">
-	<!-- product -->
-	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-						<br><br><br>	<img src="../Photo/Product6.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="#">
-								24‑inch iMac Apple <span>Desktop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$1399.99</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>M1 integrates the processor, graphics, memory, and more onto a single chip. That let us put an entire computer into a space so small it practically disappears. </p>
-				<br>
-				</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> 
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div id="gaming" class="product-content product-wrap clearfix" data-category="gaming">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/gaming-lp2.jpg" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								Asus ROG Zephyrus G14. <span>Gaming Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$1599.00</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>Dynamic and ready to travel, the pioneering ROG Zephyrus G14 is the world’s most powerful 14-inch Windows 10 Pro gaming laptop.
-						 </p>
-				<br><br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div id="gaming" class="product-content product-wrap clearfix" data-category="gaming">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/gaming-lp3.jpg" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								Asus Rog Strix G16 16″ <span>Gaming Laptop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$1738.77</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p> Draw more frames and win more games with Windows 11, a 13th Gen Intel Core i9-13980HX processor, and an NVIDIA GeForce RTX 4070 Laptop GPU at 140W Max TGP </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/hp-desktop.png" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								HP Pavilion Desktop TP01-3055xt <span>Desktop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$799.99</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>Intel Core i7-12700 (2.1 GHz base frequency, up to 4.9 GHz with Intel Turbo Boost Technology, 25 MB L3 cache, 12 cores, 20 threads) </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-<div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
-	<!-- product -->
-	<div id="desktop" class="product-content product-wrap clearfix" data-category="desktop">
-		<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
-					<div class="product-image"> 
-					<br><br><br>	<img src="../Photo/xps1.webp" alt="194x228" class="img-responsive"> 
-						<span class="tag2 hot">
-							HOT
-						</span> 
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
-						<h5 class="name">
-							<a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-14-flip-oled-up3404/">
-								XPS Desktop <span>Desktop</span>
-							</a>
-						</h5>
-						<p class="price-container">
-							<span>$899.99</span>
-						</p>
-						<span class="tag1"></span> 
-				</div>
-				<div class="description">
-					<p>An elegant desktop that gives your ideas room to grow—with infinite expandability, monstrous performance and blazing-fast speeds. </p>
-				<br>
-					</div>
-				<div class="product-info smart-form">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"> <br>
-							<a href="javascript:void(0);" class="btn btn-success">Add to cart</a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="rating">
-								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
-								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
-								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end product -->
-</div>
-</div>
-</div>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Reach to Us</h4>
-                    <ul>
-                        <li><a href="https://goo.gl/maps/Bk2WFKBgYETUSXpy7">2203 E. Empire Street, Suite J Bloomington, IL, SEMAN 61704</a></li>
-                        <li><a href="#"> Phone: +355692085698</a></li>
-                        <li><a href="#">Phone: +44-458-20-369</a></li>
-                        <li><a href="#">Email: pcstore@yahoo.com</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Shopping</h4>
-                    <ul>
-                        <li><a href="#">Product Availability</a></li>
-                        <li><a href="#">Online Order Restrictions</a></li>
-                        <li><a href="#">Return Policy</a></li>
-                        <li><a href="#">Credit Cards Accepted</a></li>
-                        <li><a href="#">payment options</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Costumer service</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Check Order Status</a></li>
-                        <li><a href="#">Recycling</a></li>
-                        <li><a href="#">Frequently Asked Questions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect with Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br><p class="footer-copyright">
-            &copy; 2023 PC STORE. All rights reserved.
-        </p>
-    </footer>
+		<br>
+		<p class="footer-copyright">
+			&copy; 2023 PC STORE. All rights reserved.
+		</p>
+	</footer>
 	<!-- Link to jQuery -->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 	<!-- Link to Bootstrap JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
+
 </html>
