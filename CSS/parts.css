@@ -1,58 +1,84 @@
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    color: black;
-  }
   
-  .card {
-    display: flex;
-    align-items: center;
-    max-width: 500px;
-    margin: 20px;
-    background-color: white;
-    width: calc(50% - 40px);
-  }
-  
-  .card-text {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: white;
-  }
-
-  .inside-container {
-    width: 200px;
-    height: 150px;
-  }
-  
-  .btn {
-    border-radius: 15px;
-    padding: 5px 15px;
-    background-color: rgb(100, 23, 151);
-  }
-
-  .card img {
-     width: 170px;
-     height: 170px;
-
-  }
 
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/background.jpg");
     background-color: #180032;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+      height: 100%;
   }
 
-  .carousels{
-    padding-top: 60px;
-    padding-left: 50px;
-    padding-right: 50px;
-  }
 
   h1{
-    color:antiquewhite;
-    text-align: center;
+    padding-left: 500px;
+    color: white;
   }
 
-  button{
-    color: antiquewhite;
-  }
+  
+.main-div {
+  display: flex; 
+}
+
+.sticky-container{
+  padding-top: 18px;
+}
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #33333300;
+  position: sticky;
+  top: 0;
+  width: 200px; 
+}
+
+.li {
+  /* Remove the float property */
+  display: block;
+}
+
+.li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.li a:hover {
+  background-color: #111;
+}
+
+swiper-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-size: 18px;
+  background: #93000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.main-content{
+  display: flex;
+  justify-content: space-between;
+}
+
