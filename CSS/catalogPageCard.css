@@ -12,6 +12,9 @@ body{
   margin-top: 100px;
   text-align: center;
 }
+.kartat{
+  height: 350px;
+}
 .product-content:hover{
   transform: scale(1.1);
   background: linear-gradient(right bottom, #d760e0);
@@ -358,6 +361,7 @@ body{
   padding: 10px;
   background-color: #fff;
 }
+
 @media only screen and (min-width:768px) {
   .product-content div[class*=col-md-4] {
       padding-right: 0
