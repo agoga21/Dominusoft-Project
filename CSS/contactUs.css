@@ -160,7 +160,15 @@ body{
 .polaroid {
   background: #fff;
   padding: 1rem;
-  box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+  box-shadow:
+    0 0 5px #fff,     
+    5px 0 10px #f0f,   
+    -5px 0 10px #0ff,  
+    5px 0 30px #f0f,  
+    -5px 0 30px #0ff, 
+    0 0 5px #fff,            
+    -2.5px 0 10px #f0f,        
+    2.5px 0 10px #0ff;
   
 }
 .polaroid > img{
