@@ -14,13 +14,10 @@ body{
   background-size: cover;
   padding: 60px;
   color: white;
-  height: 90vh;
-  height: calc(100vh - 56px); /* Subtract the height of the expanded navbar (56px is an example value) */
-  transition: height 0.3s ease;
+  height: 100vh;
+  
 }
-.trePikeshi{
-  margin: 200px 45%;
-}
+
 
 
 .aboutUs{
@@ -200,12 +197,12 @@ margin-bottom: 10px;
   }
   
 
-hr{
+.trePikeshi{
     border-style: dotted none none;
     border-width: 10px;
     width: 10%;
-    color: rgb(91, 43, 139);
-    margin: 10px auto;
+    
+    margin: 300px auto;
 }h1,h2,h3{
     font-family: 'VT323', monospace;
 }

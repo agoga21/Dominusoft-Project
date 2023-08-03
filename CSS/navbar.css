@@ -14,7 +14,9 @@
   .navBar.active ~ .mainDiv {
     margin-top: 80px; /* Replace 56px with the actual height of your expanded navbar */
   }
+  
   @media screen and (max-width: 768px) {
+    
     .navBar a:not(.toggle-button) {
         display: none;
     }
@@ -29,10 +31,7 @@
     .image-container .keyboard{
       display: none;
     }
-    .image-container .PC1{
-      height: 250px;
-      width: 250px;
-    }
+    
 
 .navBar::before {
   display: none;

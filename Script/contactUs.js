@@ -59,16 +59,19 @@ function isInViewport(element) {
 // Function to add a class for the animation when the form is in the viewport
 function showFormAnimationOnScroll() {
   const containerForm = document.querySelector('.containerForm');
-  
+
   if (isInViewport(containerForm)) {
     containerForm.classList.add('show');
-    // Remove the scroll event listener after the animation is triggered once
-    window.removeEventListener('scroll', showFormAnimationOnScroll);
+  } else {
+    containerForm.classList.remove('show'); // Add this line to remove the 'show' class when not in the viewport
   }
 }
 
 // Add the scroll event listener to trigger the animation
 window.addEventListener('scroll', showFormAnimationOnScroll);
+
+// Trigger the animation once when the page loads
+document.addEventListener('DOMContentLoaded', showFormAnimationOnScroll);
 
 
 
@@ -92,6 +95,15 @@ document.addEventListener('DOMContentLoaded', function() {
   showAnimation(figure2);
   showAnimation(figure3);
 });
+
+// aktivizimi i navbar button kur ekrani eshte i vogel
+
+const toggleButton = document.querySelector('.toggle-button');
+    const navBar = document.querySelector('#navBar');
+
+    toggleButton.addEventListener('click', () => {
+        navBar.classList.toggle('show');
+    });
 
 
 
