@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/parts.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="sticky-container">
+    <ul class="ul">
+      <li class="li"><a href="#home">Computers</a></li>
+      <li class="li"><a href="#news">Laptops</a></li>
+      <li class="li with-submenu">
+        <a href="javascript:void(0);" onclick="toggleSubmenu()">Parts</a>
+        <ul class="submenu" id="submenu">
+          <li><a href="#">CPU</a></li>
+          <li><a href="#">RAM</a></li>
+          <li><a href="#">HD</a></li>
+        </ul>
+      </li>
+      <li class="li"><a href="#contact">Miscellaneous</a></li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleSubmenu() {
+  var submenu = document.getElementById("submenu");
+  if (submenu.style.display === "block") {
+    submenu.style.display = "none";
+  } else {
+    submenu.style.display = "block";
+  }
+}
+
+  </script>
+</body>
+
+</html>
