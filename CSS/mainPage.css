@@ -3,15 +3,23 @@ body{
     margin: 0;
 }
 .bg-main{
-  padding: 70px 0;
+  padding: 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/bg.jpg");
   background-color: #180032;
   background-size: cover;
 }
 .mainDiv{
-  
-    padding: 30px;
-    color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/pcAnimation.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 60px;
+  color: white;
+  height: 90vh;
+  height: calc(100vh - 56px); /* Subtract the height of the expanded navbar (56px is an example value) */
+  transition: height 0.3s ease;
+}
+.trePikeshi{
+  margin: 200px 45%;
 }
 
 
@@ -110,6 +118,17 @@ body{
 .description {
     font-size: 30px;
     font-family:'VT323', monospace ;
+    transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.lorem{
+  transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.lorem.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .fancy {
@@ -121,6 +140,8 @@ body{
 .pIpare{
     font-family: 'VT323', monospace;
     font-size: 50px;
+    transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 p{
     font-family: 'VT323', monospace;
@@ -178,19 +199,7 @@ margin-bottom: 10px;
     overflow: hidden;
   }
   
-.PC1{
-    width: 380px;
-    height: 400px;
-}
-.image-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-}
-.keyboard {
-    width: 40%;
-    padding-left: 60px;
-}
+
 hr{
     border-style: dotted none none;
     border-width: 10px;
@@ -205,27 +214,6 @@ hr{
   }
 @media screen and (max-width: 768px) {
     
-    .image-container .keyboard{
-      display: none;
-    }
-    .image-container .PC1{
-      height: 250px;
-      width: 250px;
-    }
-  .image-row{
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center;
-  padding-left: 5px;
-  padding-right: 5px;
-  }
-
-    .image-row img {
-      width: 50px; 
-      max-height: 35px; 
-  
-  margin-bottom: 10px;
-    }
 
     .card-container {
       flex-direction: column; /* Stack cards vertically */
@@ -245,15 +233,7 @@ hr{
       width: 100%; /* Make the images inside the card container full width */
     }
 }
-@media screen and(min-width: 768px){
-  .image-container .keyboard{
-    display: none;
-  }
-  .image-container .PC1{
-    height: 300px;
-    width: 300px;
-  }
-}
+
 @media screen and (max-width: 768px) {
   .aboutUs,
   .latestThings,

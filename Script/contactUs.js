@@ -41,4 +41,59 @@ function validateForm() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
+
+
   
+  //Contact Us Form
+ // Function to check if an element is in the viewport
+function isInViewport(element) {
+  const bounding = element.getBoundingClientRect();
+  return (
+    bounding.top >= 0 &&
+    bounding.left >= 0 &&
+    bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Function to add a class for the animation when the form is in the viewport
+function showFormAnimationOnScroll() {
+  const containerForm = document.querySelector('.containerForm');
+  
+  if (isInViewport(containerForm)) {
+    containerForm.classList.add('show');
+    // Remove the scroll event listener after the animation is triggered once
+    window.removeEventListener('scroll', showFormAnimationOnScroll);
+  }
+}
+
+// Add the scroll event listener to trigger the animation
+window.addEventListener('scroll', showFormAnimationOnScroll);
+
+
+
+
+
+//The cards animation
+// Function to add a class for the animation
+function showAnimation(element) {
+  element.classList.add('show');
+}
+
+// Trigger the animations when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  const containerForm = document.querySelector('.containerForm');
+  const figure1 = document.querySelector('.figure1');
+  const figure2 = document.querySelector('.figure2');
+  const figure3 = document.querySelector('.figure3');
+
+  showAnimation(containerForm);
+  showAnimation(figure1);
+  showAnimation(figure2);
+  showAnimation(figure3);
+});
+
+
+
+
+

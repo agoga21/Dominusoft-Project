@@ -5,11 +5,15 @@
     align-items: end;
     
   }
-.navBar.active {
-  flex-direction: column;
-  align-items: flex-start;  
-  background-color: black;
-}
+  .navBar.active {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: black;
+    
+  }
+  .navBar.active ~ .mainDiv {
+    margin-top: 80px; /* Replace 56px with the actual height of your expanded navbar */
+  }
   @media screen and (max-width: 768px) {
     .navBar a:not(.toggle-button) {
         display: none;
@@ -88,6 +92,7 @@
     margin: 0 5px;
     transition: background-color 0.3s ease;
     border-radius: 4px;
+    font-family: 'VT323', monospace;
   }
   .navBar a:hover {
     background-color: #555;
