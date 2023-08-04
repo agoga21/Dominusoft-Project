@@ -50,7 +50,7 @@
 }
 
 .li a:hover {
-  background-color: #111;
+  background-color: #11111181;
 }
 
 swiper-container {
@@ -80,31 +80,4 @@ swiper-slide img {
 .main-content{
   display: flex;
   justify-content: space-between;
-}
-
-/*test */
-
-.with-submenu::after {
-  content: '\f107'; /* Unicode for down arrow (Font Awesome icon) */
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  margin-left: 10px;
-}
-
-/* Submenu style */
-.submenu {
-  list-style-type: none;
-  padding: 0;
-  display: none;
-  background-color: #333;
-  position: absolute;
-}
-
-/* Adjustments to push "Miscellaneous" down when submenu is visible */
-.li.with-submenu {
-  position: relative;
-}
-
-.li.with-submenu .submenu {
-  top: 100%; /* Push the submenu below the parent li */
 }
