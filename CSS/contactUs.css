@@ -31,7 +31,7 @@ body{
     2.5px 0 10px #0ff;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 
   }
   .containerForm.show {
