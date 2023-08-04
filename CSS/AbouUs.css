@@ -73,9 +73,9 @@ body {
   font-weight: bold;
   padding: 10px;
   box-shadow:
-    inset 20px 0 80px white,
+    inset 20px 0 80px gray,
     inset -20px 0 80px darkslateblue,
-    inset 20px 0 300px white,
+    inset 20px 0 300px gray,
     inset -20px 0 300px darkslateblue;
 
 }
