@@ -185,9 +185,9 @@ margin-bottom: 10px;
   }
   
   .btn {
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 5px 15px;
-   background-color: purple;
+   background-color: rgb(156, 133, 156);
   }
 
   .swiper-container {
