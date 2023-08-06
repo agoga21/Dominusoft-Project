@@ -101,6 +101,7 @@
     color: #fff;
     font-size: 16px;
     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)); 
+    z-index: 1;
   }
   .navBar a {
     color: #fff;
