@@ -420,32 +420,16 @@
       &copy; 2023 PC STORE. All rights reserved.
     </p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+  
 
   <script>
-    const swiperEl = document.querySelector('swiper-container')
-    Object.assign(swiperEl, {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      pagination: {
-        clickable: true,
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 40,
-        },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 300,
-        },
-      },
-    });
-    swiperEl.initialize();
+     // Responsive navigation bar toggle
+     const toggleButton = document.querySelector('.toggle-button');
+        const navBar = document.querySelector('.navBar');
+
+        toggleButton.addEventListener('click', () => {
+            navBar.classList.toggle('active');
+        });
   </script>
 </body>
 
