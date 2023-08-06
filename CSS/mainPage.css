@@ -199,7 +199,7 @@ margin-bottom: 10px;
   }
 
   .swiper-container {
-    max-height: 1000px; 
+   
     position: relative;
     overflow: hidden;
   }
@@ -224,7 +224,6 @@ margin-bottom: 10px;
       flex-direction: column; /* Stack cards vertically */
       align-items: center; /* Center cards horizontally */
       justify-content: center; /* Center cards vertically */
-      height: auto; /* Adjust the height to fit the content */
     }
   
     .card {
