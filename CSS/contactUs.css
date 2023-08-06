@@ -29,9 +29,10 @@ body{
     0 0 5px #fff,            
     -2.5px 0 10px #f0f,        
     2.5px 0 10px #0ff;
+  
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.6s ease, transform 0.5s ease;
 
   }
   .containerForm.show {
@@ -71,6 +72,7 @@ body{
     padding-top: 80px;
   }
   .figure1,.figure2,.figure3{
+    z-index: -1;
     background-color: whitesmoke;
     height: 300px;
     width: 20%;
@@ -90,9 +92,22 @@ body{
     0 0 5px #fff,            
     -2.5px 0 10px #f0f,        
     2.5px 0 10px #0ff;
+    
+  }
+  .figure1{
     opacity: 0;
     transform: translateX(60px);
-    transition: opacity 0.6s ease, transform 0.5s ease-in;
+    transition: opacity 0.6s ease, transform 0.3s ease-out;
+  }
+  .figure2{
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.6s ease, transform 0.5s ease-out;
+  }
+  .figure3{
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.6s ease, transform 0.7s ease-out;
   }
   .card-content {
     text-align: center;

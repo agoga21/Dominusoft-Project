@@ -1,41 +1,62 @@
 function validateForm() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+  const nameInput = document.getElementById('name');
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
 
-    document.getElementById("name1").innerHTML = "";
-    document.getElementById("email1").innerHTML = "";
-    document.getElementById("message1").innerHTML = "";
-  
-    if (name.trim() === '') {
-      document.getElementById("name1").innerHTML = "• Please enter your name!";
-      document.getElementById("name1").style.color="red";
-      document.getElementById("name1").style.fontSize="14px";
-      return false;
-    }
-  
-    if (email.trim() === '') {
-        document.getElementById("email1").innerHTML = "• Please enter your email!";
-        document.getElementById("email1").style.color="red";
-        document.getElementById("email1").style.fontSize="14px";
-      return false;
-    } else if (!isValidEmail(email)) {
-        document.getElementById("email1").innerHTML = "• Please enter a valid email address!";
-        document.getElementById("email1").style.color="red";
-        document.getElementById("email1").style.fontSize="14px";
-      return false;
-    }
-  
-    if (message.trim() === '') {
-        document.getElementById("message1").innerHTML = "• Please enter your message!";
-        document.getElementById("message1").style.color="red";
-        document.getElementById("message1").style.fontSize="14px";
-      
-      return false;
-    }
-  
-    return true;
+  document.getElementById("name1").innerHTML = "";
+  document.getElementById("email1").innerHTML = "";
+  document.getElementById("message1").innerHTML = "";
+
+  // Sanitize the name input and restrict it to 20 characters
+  let name = nameInput.value.trim();
+    const nameRegex = /^[A-Za-z]+$/; // Regular expression to allow only letters
+
+    if (name === '') {
+        document.getElementById("name1").innerHTML = "• Please enter your name!";
+        document.getElementById("name1").style.color = "red";
+        document.getElementById("name1").style.fontSize = "14px";
+        return false;
+    } else if (!nameRegex.test(name)) {
+        document.getElementById("name1").innerHTML = "• Name must contain only letters!";
+        document.getElementById("name1").style.color = "red";
+        document.getElementById("name1").style.fontSize = "14px";
+        return false;
+    }  else {
+      // Limit the name length to 20 characters
+      if (name.length > 20) {
+          document.getElementById("name1").innerHTML = "• Name must not exceed 20 characters!";
+          document.getElementById("name1").style.color = "red";
+          document.getElementById("name1").style.fontSize = "14px";
+          return false;
+      }
+      nameInput.value = name; // Update the input value with the sanitized name
   }
+
+  if (email.trim() === '') {
+      document.getElementById("email1").innerHTML = "• Please enter your email!";
+      document.getElementById("email1").style.color = "red";
+      document.getElementById("email1").style.fontSize = "14px";
+      return false;
+  } else if (!isValidEmail(email)) {
+      document.getElementById("email1").innerHTML = "• Please enter a valid email address!";
+      document.getElementById("email1").style.color = "red";
+      document.getElementById("email1").style.fontSize = "14px";
+      return false;
+  }
+
+  if (message.trim() === '') {
+      document.getElementById("message1").innerHTML = "• Please enter your message!";
+      document.getElementById("message1").style.color = "red";
+      document.getElementById("message1").style.fontSize = "14px";
+      return false;
+  }
+
+  // Update the name input value with the sanitized name
+  nameInput.value = name;
+
+  return true;
+}
+
   
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -96,14 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
   showAnimation(figure3);
 });
 
-// aktivizimi i navbar button kur ekrani eshte i vogel
-
-const toggleButton = document.querySelector('.toggle-button');
-    const navBar = document.querySelector('#navBar');
-
-    toggleButton.addEventListener('click', () => {
-        navBar.classList.toggle('show');
-    });
 
 
 
