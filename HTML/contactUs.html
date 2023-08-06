@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact Form</title>
+    <title>PC Hub-Contact Form</title>
     <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/contactUs.css">
     <link rel="stylesheet" href="../CSS/mainPageFooter.css">
     <meta charset="UTF-8">
+    <link rel="icon" href="../Photo/icon.ico" sizes="96x96" type="image/icon type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/27ae860b87.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,7 @@
         
             <a href="../HTML/MainPage.html">Home</a>
             <a href="CatalogPage.html">Catalog</a>
-            <a href="#">Parts</a>
+            <a href="parts.html">Parts</a>
             <a href="../HTML/contactUs.html">Contact Us</a>
             <a href="../HTML/AboutUs.html">About Us</a>
             <a href="#" class="toggle-button">&#9776;</a>
@@ -151,7 +152,15 @@
             &copy; 2023 PC STORE. All rights reserved.
         </p>
    </footer> 
+    <script>
+        // Responsive navigation bar toggle
+        const toggleButton = document.querySelector('.toggle-button');
+        const navBar = document.querySelector('.navBar');
 
+        toggleButton.addEventListener('click', () => {
+            navBar.classList.toggle('active');
+        });
+    </script>
     <script src="../Script/contactUs.js"></script>
 </body>
 
