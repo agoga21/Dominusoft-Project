@@ -61,9 +61,7 @@ body{
     border-radius: 5px;
   }
   
-  button:hover {
-    background-image: url("../Photo/bg.jpg");
-    }
+  
 
   .figureContainer{
     display: flex;
@@ -298,7 +296,7 @@ button {
 }
 
 button:hover {
-  background-color: #8126ad;
+  background-color: #8f46b4;
 }
 /* Mobile devices */
 @media only screen and (max-width: 600px) {
