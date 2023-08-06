@@ -41,7 +41,6 @@
 }
 
 .li {
-  /* Remove the float property */
   display: block;
 }
 
@@ -84,5 +83,32 @@ swiper-slide img {
 .main-content{
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  
+
+  .main-content{
+    display: block
+  }
+
+  .sticky-container{
+    font-size: 14px;
+    padding-right: 0px;
+    padding-left: 5px;
+  }
+
+  h1{
+    padding-left: 0;
+   text-align: center;
+    color: white;
+  }
+
+  
+
+  .flip-card{
+    padding-bottom: 10px;
+    padding-left: 30px;
+  }
 }
 
