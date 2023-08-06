@@ -31,9 +31,7 @@
     .navBar.active a:not(.toggle-button) {
         display: block;
     }
-    .image-container .keyboard{
-      display: none;
-    }
+    
     .navBar {
       position: fixed;
       top: 0;
