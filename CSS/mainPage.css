@@ -4,7 +4,7 @@ body{
 }
 .bg-main{
   padding: 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/bg.jpg");
+  background-image: linear-gradient(rgba(10, 10, 10, 0.6), rgba(0, 0, 0, 0.8)), url("../Photo/bg.jpg");
   background-color: #180032;
   background-size: cover;
 }
